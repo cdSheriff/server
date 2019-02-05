@@ -6,6 +6,11 @@ const app = express()
 
 // app.use(express.static('public'))
 
+app.use(function (req, res, next) {
+	res.header('Content-Type', 'application/json');
+	next();
+})
+
 app.get('/', (req, res) => {
 	res.json({"foo": "bar"});
 })
