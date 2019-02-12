@@ -38,9 +38,10 @@ function locName(ID) {
 	return fetch(url)
 		.then(resp => resp.text())
 		.then(text => {
-			let dom = new JSDOM(text)
-			let location = dom.window.document.querySelector("h2").textContent
-			return location.split('–')[0].slice(0,-1)
+			return text
+			// let dom = new JSDOM(text)
+			// let location = dom.window.document.querySelector("h2").textContent
+			// return location.split('–')[0].slice(0,-1)
 		})
 
 }
