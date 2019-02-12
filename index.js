@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 
 app.get('/', (req, res) => {
 	// let q = url.parse(request.url, true);
-	// console.log(req);
+	console.log(req);
 	// locName(q.query.ID).then(resp => console.log('got this back: ' + resp))
 	// regexIt(q.query.ID).then(resp => res.json(resp))
 	res.json({"foo": "bar"});
