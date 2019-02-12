@@ -20,13 +20,13 @@ app.use(function (req, res, next) {
 	next();
 })
 
-app.get('/', (req, res) => {
+app.get('/:id', (req, res) => {
 	// let q = url.parse(request.url, true);
 	// console.log(req);
 	// locName(q.query.ID).then(resp => console.log('got this back: ' + resp))
 	// regexIt(q.query.ID).then(resp => res.json(resp))
 	// res.json({"foo": req});
-	res.send(req)
+	res.send("you want tide station: " + req.params.id)
 })
 
 app.listen(3000, () => console.log('Server running on port 3000'))
