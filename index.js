@@ -28,24 +28,24 @@ app.get('/:id', (req, res) => {
 	// res.json({"foo": req});
 	// res.send("you want tide station: " + req.params.id)
 	// locName(req.params.id).then(resp => res.send(resp))
-	regexIt(req.params.id).then(resp => res.json(resp[0]))
+	regexIt(req.params.id).then(resp => res.json(resp))
 })
 
 app.listen(3000, () => console.log('Server running on port 3000'))
 
-function locName(ID) {
-	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide&tz=Australia/Adelaide&tz_js=ACDT'
+// function locName(ID) {
+// 	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide&tz=Australia/Adelaide&tz_js=ACDT'
 
-	return fetch(url)
-		.then(resp => resp.text())
-		.then(text => {
-			// return text
-			let dom = new JSDOM(text)
-			let location = dom.window.document.querySelector("h2").textContent
-			return location.split('–')[0].slice(0,-1)
-		})
+// 	return fetch(url)
+// 		.then(resp => resp.text())
+// 		.then(text => {
+// 			// return text
+// 			let dom = new JSDOM(text)
+// 			let location = dom.window.document.querySelector("h2").textContent
+// 			return location.split('–')[0].slice(0,-1)
+// 		})
 
-}
+// }
 
 function parseDay(m, method = false) {
 	let tidesArray = []
@@ -77,8 +77,8 @@ function regexIt(ID) {
 	// TURN ID INTO A TIMEZONE TOO, MIGHT HAVE TO JUST GO THROUGH ALL THE ID'S TO GET THERE
 
 	// let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=SA_TP036&type=tide&date=29-1-2019&region=SA&tz=Australia/Adelaide&tz_js=ACDT&days=7'
-	let tz = 'Antarctica/Mawson'
-	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide&tz=' + tz + '&tz_js=ACDT'
+	// let tz = 'A'
+	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide'
 	let regex = /(?=\<h3\>)([\s\S]*?)\<\/tbody\>/mg
 	let tides = []
 
