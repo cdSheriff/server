@@ -28,7 +28,7 @@ app.get('/:id', (req, res) => {
 	// res.json({"foo": req});
 	// res.send("you want tide station: " + req.params.id)
 	// locName(req.params.id).then(resp => res.send(resp))
-	regexIt(req.params.id).then(resp => res.send(resp))
+	regexIt(req.params.id).then(resp => res.json(resp[0]))
 })
 
 app.listen(3000, () => console.log('Server running on port 3000'))
