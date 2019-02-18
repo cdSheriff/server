@@ -62,7 +62,7 @@ function parseDay(m, method = false) {
 		do {
 			n = headerReg.exec(m)
 			if (n && n[1].includes('instance ')) {
-				temp = timeReg.exec(n[1])[1].slice(0,-2)
+				temp = timeReg.exec(n[1])[1].slice(0,-3)
 				if (wayReg.exec(n[1])[1].includes('high')) {
 					temp = temp + 'H'
 				} else {
