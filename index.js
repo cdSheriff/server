@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 	next();
 })
 
-app.get('/:id', (req, res) => {
+app.get('/tides/:id', (req, res) => {
 	// let q = url.parse(request.url, true);
 	// console.log(req);
 	// locName(q.query.ID).then(resp => console.log('got this back: ' + resp))
@@ -30,6 +30,10 @@ app.get('/:id', (req, res) => {
 	// locName(req.params.id).then(resp => res.send(resp))
 	regexIt(req.params.id).then(resp => res.json(resp))
 })
+
+app.get('*', (req, res) => {
+   res.send('invalid URL.');
+});
 
 app.listen(3000, () => console.log('Server running on port 3000'))
 
@@ -58,7 +62,7 @@ function parseDay(m, method = false) {
 		do {
 			n = headerReg.exec(m)
 			if (n && n[1].includes('instance ')) {
-				temp = timeReg.exec(n[1])[1].replace(/-|:/g,'').slice(0,-2)
+				temp = timeReg.exec(n[1])[1].slice(0,-2)
 				if (wayReg.exec(n[1])[1].includes('high')) {
 					temp = temp + 'H'
 				} else {
