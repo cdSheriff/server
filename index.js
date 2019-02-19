@@ -28,8 +28,32 @@ app.get('/tides/:id', (req, res) => {
 	// res.json({"foo": req});
 	// res.send("you want tide station: " + req.params.id)
 	// locName(req.params.id).then(resp => res.send(resp))
+
+
 	regexIt(req.params.id).then(resp => res.json(resp))
 })
+
+app.get('/test/:id', (req,res) => {
+	testLoc(req.params.id).then(resp => {
+		if (resp == false) {
+			res.status(400).end()
+		} else {
+			res.status(200).end()
+		}
+	})
+})
+
+function testLoc(ID) {
+	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide'
+
+	return fetch(url)
+		.then(resp => resp.text())
+		.then(text => {
+			if (!text.includes('</h2>')) {
+				return false
+			} else {return true}
+		})
+}
 
 app.get('*', (req, res) => {
    res.send('invalid URL.');
