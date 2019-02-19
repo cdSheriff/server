@@ -36,9 +36,9 @@ app.get('/tides/:id', (req, res) => {
 app.get('/test/:id', (req,res) => {
 	testLoc(req.params.id).then(resp => {
 		if (resp == false) {
-			res.status(400).end()
+			res.status(400).send('invalid location')
 		} else {
-			res.status(200).end()
+			res.status(200).send('valid location')
 		}
 	})
 })
