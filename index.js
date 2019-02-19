@@ -36,24 +36,14 @@ app.get('/tides/:id', (req, res) => {
 app.get('/test/:id', (req,res) => {
 	testLoc(req.params.id).then(resp => {
 		if (resp == false) {
-			res.status(400).send('invalid location')
+			res.sendStatus(400)
 		} else {
-			res.status(200).send('valid location')
+			res.sendStatus(200)
 		}
 	})
 })
 
-function testLoc(ID) {
-	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide'
 
-	return fetch(url)
-		.then(resp => resp.text())
-		.then(text => {
-			if (!text.includes('</h2>')) {
-				return false
-			} else {return true}
-		})
-}
 
 app.get('*', (req, res) => {
    res.send('invalid URL.');
@@ -74,6 +64,19 @@ app.listen(3000, () => console.log('Server running on port 3000'))
 // 		})
 
 // }
+
+function testLoc(ID) {
+	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide'
+
+	return fetch(url)
+		.then(resp => resp.text())
+		.then(text => {
+			if (!text.includes('</h2>')) {
+				return false
+			} else {return true}
+		})
+}
+
 
 function parseDay(m, method = false) {
 	let tidesArray = []
