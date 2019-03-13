@@ -1,11 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>first host</title>
+	<title>follow us!</title>
+	<script type="text/javascript">
+		// timeline = [
+		// 	['20190312T19:20', 'Landed in Hong Kong',"0'", 'HKG'],
+		// 	['20190313T19:00', 'On plane to Kathmandu', "0'", 'HKG'],
+		// 	['20190313T22:05', 'Exploring Kathmandu', "4383'", 'KTM'],
+		// 	['20190315T18:30', 'Meeting team in Kathmandu', "4383'", 'KTM'],
+		// 	[]
+
+		// ]
+
+		var timeLine = {
+			'20190312': ['Hong Kong', 5.5, 0, 'HKG', 'travel to Hong Kong'],
+			'20190313': ['Kathmandu', 0, 4383, 'KTM', 'fly to Kathmandu'],
+			'20190314': ['Kathmandu', 0, 4383, 'KTM', 'explore Kathmandu'],
+			'20190315': ['Kathmandu', 0, 4383, 'KTM', 'explore Kathmandu, meet RMI group'],
+			'20190316': ['Kathmandu', 0, 4383, 'KTM', 'explore Kathmandu with RMI group'],
+			'20190317': ['Phakding', 7, 8700, 'KTM', 'fly to Lukla, hike to Phakding'],
+			'20190318': ['Namche Bazaar', 5, 11300, 'KTM', 'hike from Phakding to Namche Bazaar'],
+			'20190319': ['Namche Bazaar', 4, 11300, 'KTM', 'day hike to Khunde and Khumjung'],
+			'20190320': ['Deboche', 5, 12325, 'KTM', 'hike from Namche Bazaar to Deboche'],
+			'20190321': ['Pheriche', 4, 13950, 'KTM', 'hike from Deboche to Pheriche'],
+			'20190322': ['Pheriche', 4, 13950, 'KTM', 'day hike up Imja Khola valley'],
+			'20190323': ['Lobuche', 5, 16175, 'KTM', 'hike from Pheriche to Lobuche'],
+			'20190324': ['Gorak Shep', 3, 16950, 'KTM', 'hike from Lobuche to Gorak Shep, day hike up Kala Patar'],
+			'20190325': ['Everest Base Camp', 3, 17575, 'KTM', 'hike from Gorak Shep to Everest Base Camp'],
+			'20190326': ['Everest Base Camp', 2, 17575, 'KTM', 'explore EBC, hike up to the foot of the Khumbu icefall'],
+			'20190327': ['Pheriche', 6, 13950, 'KTM', 'descend from EBC to Pheriche'],
+			'20190328': ['Namche Bazaar', 8, 11300, 'KTM', 'descend from Pheriche to Namche Bazaar'],
+			'20190329': ['Lukla', 7, 9350, 'KTM', 'descend from Namche Bazaar to Lukla'],
+			'20190330': ['Kathmandu', 2, 4383, 'KTM', 'fly from Lukla to Kathmandu'],
+			'20190331': ['Kathmandu', 0, 4383, 'KTM', 'contingency day in Kathmandu'],
+			'20190401': ['Home', 22, 0, 'PDT', 'fly home']
+		}
+
+		var trekStart = 9
+		var bedTime = 21
+		var wakeTime = 7
+		var contact = ['Hong Kong', 'Kathmandu']
+
+		// function checkDescent(start,end) {
+		// 	if (end[2] > start[2]) {
+		// 		return true
+		// 	} else {
+		// 		return false
+		// 	}
+		// }
+
+		// var d = new Date()
+
+		// get time in KTM
+		// from time, get which day in list
+		// if not contact, say contact limited
+		// say where we are, or if it is a travel day where we are headed
+		// check time, if a hike day then say 'hiking' based on start time and trek time
+
+		function checkMoving(d) {
+			oldD = d.slice(0,-2) + parseInt(d.slice(-2)) - 1
+
+			// console.log(date, oldDate)
+			if (timeLine[d][0] == timeLine[oldD][0]) {
+				return false
+			} else {
+				return true
+			}
+		}
+
+		function whatDoing(d,t) {
+			var current = ''
+			// console.log(trekStart + timeLine[d][1])
+			if (t <= wakeTime || t > bedTime) {
+				current = 'sleepy time!'
+			} else if (t <= trekStart) {
+				current = 'brekkies and prepping for the day'
+			} else if (t > trekStart && t <= trekStart + parseInt(timeLine[d][1])) {
+				current = 'on the trail!'
+			} else {
+				current = 'hanging out in camp'
+			}
+
+			document.getElementById('now').innerHTML = 'Right now, we are ' + current
+		}
+
+		function dayPlan(d) {
+			document.getElementById('plan').innerHTML = 'Today we ' + timeLine[d][4]
+		}
+
+		function contactChance(d) {
+			let chances = ''
+			if (contact.includes(timeLine[d][0])) {
+				chances = 'We are in town. We likely have service or internet'
+			} else {
+				chances = 'We are in the valley. We may not have service or internet'
+			}
+			document.getElementById('contact').innerHTML = chances
+		}
+
+		function showTime(t) {
+			// t = t.
+			document.getElementById('time').innerHTML = t
+		}
+
+		function zeroPad(n) {
+			if (n.toString().length == 1) {
+				n = '0' + n
+			}
+			return n
+		}
+
+		function wholeKaboodle() {
+			var t = new Date()
+			var k = new Date(t.getTime() + t.getTimezoneOffset() * 60000 + 345 * 60000)
+			var d = 2019 + zeroPad(k.getMonth() + 1) + zeroPad(k.getDate()).toString()
+			// console.log(k.getYear())
+			// console.log(d)
+			// console.log(t.getTimezoneOffset())
+			// console.log(t.getTime())
+			// console.log(months.indexOf('Mar'))
+			// console.log(new Date(t.getTime() + t.getTimezoneOffset() * 60000 + 345 * 60000))
+			// let testy = 'hello'
+			// console.log(zeroPad(t.getMonth() + 1))
+			// now make it t and d and send them in
+			showTime(k)
+			contactChance(d)
+			dayPlan(d)
+			whatDoing(d,zeroPad(k.getHours()))
+			
+		}
+
+
+
+	</script>
 </head>
-<body>
-	<div>
-		placeholder
+<body onload = "wholeKaboodle()">
+	<div id = "time">
+
+	</div>
+	<div id = "now">
+		
+	</div>
+	<div id = "plan">
+	
+	</div>
+	<div id = "contact">
+		
 	</div>
 </body>
 </html>
