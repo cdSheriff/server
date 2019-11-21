@@ -60,7 +60,7 @@ app.get('*', (req, res) => {
 
 app.listen(3000, () => console.log('Server running on port 3000'))
 
-app2.listen(4000, () => console.log('MQTT running on port 4000'))
+app2.listen(1883, () => console.log('MQTT running on port 4000'))
 
 app2.get('*', (req, res) => {
 	res.send('welcome.');
