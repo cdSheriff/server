@@ -1,10 +1,10 @@
 server {
 	listen 1883;
 
-	if ($request_method !~ ^(GET|HEAD|POST)$ )
-	{
-		return 405;
-	}
+	#if ($request_method !~ ^(GET|HEAD|POST)$ )
+	#{
+	#	return 405;
+	#}
 
 	server_name mqtt.cdsheriff.com;
 
@@ -18,6 +18,6 @@ server {
 	location / {
 		proxy_set_header		X-Real-IP	$remote_addr;
 		proxy_set_header		Host		$http_host;
-		proxy_pass				http://127.0.0.1:8883;
+		proxy_pass				http://127.0.0.1:4000;
 	}
 }
