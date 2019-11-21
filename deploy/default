@@ -1,7 +1,7 @@
 server {
 	listen 80;
 	listen 443 ssl;
-	listen 1883;
+	#listen 1883;
 
 	if ($request_method !~ ^(GET|HEAD|POST)$ )
 	{
