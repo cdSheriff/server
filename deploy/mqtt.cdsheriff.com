@@ -15,9 +15,9 @@ server {
 	#ssl_prefer_server_ciphers on;
 	#ssl_ciphers ‘EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH’;
 
-	location / {
-		proxy_set_header		X-Real-IP	$remote_addr;
-		proxy_set_header		Host		$http_host;
-		proxy_pass				http://127.0.0.1:4000;
-	}
+	#location / {
+	#	proxy_set_header		X-Real-IP	$remote_addr;
+	#	proxy_set_header		Host		$http_host;
+	#	proxy_pass				http://127.0.0.1:4000;
+	#}
 }
