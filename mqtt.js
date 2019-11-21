@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 })
 
 app.get('*', (req, res) => {
-   res.send('invalid URL.');
+   res.send('mqtt.');
 });
 
 app.listen(4000, () => console.log('MQTT running on port 4000'))
