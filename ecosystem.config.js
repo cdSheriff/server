@@ -1,8 +1,14 @@
 module.exports = {
-	apps: [{
-		name: 'tutorial',
-		script: './index.js'
-	}],
+	apps: [
+		{
+			name: 'tutorial',
+			script: './index.js'
+		},
+		{
+			name: 'mqtt',
+			script: './mqtt.js'
+		}
+	],
 	deploy: {
 		production: {
 			user: 'ubuntu',

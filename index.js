@@ -5,11 +5,11 @@ const http = require('http')
 const url = require('url')
 
 const app = express()
-const app2 = express()
+// const app2 = express()
 
-app2.get('*', (req, res) => {
-	res.send('mqtting!');
-});
+// app2.get('*', (req, res) => {
+// 	res.send('mqtting!');
+// });
 // var sub1 = express()
 // var sub2 = express()
 
@@ -81,7 +81,7 @@ app.get('*', (req, res) => {
 
 app.listen(3000, () => console.log('Server running on port 3000'))
 
-app2.listen(1883, () => console.log('MQTT running on port 1883'))
+// app2.listen(1883, () => console.log('MQTT running on port 1883'))
 
 // app2.listen(1883, () => console.log('MQTT running on port 4000'))
 
