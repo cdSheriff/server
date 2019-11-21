@@ -32,7 +32,13 @@ server {
 		return 405;
 	}
 
-	server_name mqtt.cdsheriff.com;
+	server_name cdsheriff.com;
+
+	ssl_certificate		/etc/letsencrypt/live/cdsheriff.com/fullchain.pem;
+	ssl_certificate_key		/etc/letsencrypt/live/cdsheriff.com/privkey.pem;
+
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
 
 	location / {
 		proxy_set_header		X-Real-IP	$remote_addr;
