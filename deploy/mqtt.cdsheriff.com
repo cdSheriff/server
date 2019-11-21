@@ -28,6 +28,6 @@ server {
 	#	proxy_pass				http://127.0.0.1:4000;
 	#}
 
-	access_log /var/log/nginx/mqtt_access.log mqtt;
+	access_log /var/log/nginx/mqtt_access.log;
 }
 }
