@@ -60,6 +60,12 @@ app.get('*', (req, res) => {
 
 app.listen(3000, () => console.log('Server running on port 3000'))
 
+app2.listen(4000, () => console.log('MQTT running on port 4000'))
+
+app2.get('*', (req, res) => {
+	res.send('welcome.');
+});
+
 // function locName(ID) {
 // 	let url = 'http://www.bom.gov.au/australia/tides/print.php?aac=' + ID + '&type=tide&tz=Australia/Adelaide&tz_js=ACDT'
 
