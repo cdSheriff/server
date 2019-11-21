@@ -6,7 +6,7 @@ server {
 		return 405;
 	}
 
-	server_name 13.58.157.199;
+	server_name mqtt.cdsheriff.com;
 
 	#ssl_certificate		/etc/letsencrypt/live/cdsheriff.com/fullchain.pem;
 	#ssl_certificate_key		/etc/letsencrypt/live/cdsheriff.com/privkey.pem;
