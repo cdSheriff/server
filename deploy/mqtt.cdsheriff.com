@@ -27,5 +27,7 @@ server {
 	#	proxy_set_header		Host		$http_host;
 	#	proxy_pass				http://127.0.0.1:4000;
 	#}
+
+	access_log /var/log/nginx/mqtt_access.log mqtt;
 }
 }
