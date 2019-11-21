@@ -17,9 +17,9 @@ sub2.get('*', (req, res) => {
 	res.send('other.');
 });
 
-app.listen(3000, sub1);
+app.use(3000, sub1);
 
-app.listen(1883, sub2);
+app.use(1883, sub2);
 // app.get('/', (req, res) => {
 // 	res.send('look I can change!')
 // })
@@ -73,9 +73,9 @@ app.listen(1883, sub2);
 //    res.send('invalid URL.');
 // });
 
-// app.listen(3000, () => console.log('Server running on port 3000'))
+app.listen(3000, () => console.log('Server running on port 3000'))
 
-// app2.listen(1883, () => console.log('MQTT running on port 4000'))
+app2.listen(1883, () => console.log('MQTT running on port 4000'))
 
 // app2.get('*', (req, res) => {
 // 	res.send('welcome.');
