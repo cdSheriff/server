@@ -2,7 +2,7 @@ var AWS = require("aws-sdk");
 AWS.config.region = 'us-east-2b';
 // console.log("Region: ", AWS.config.region);
 
-var sns = AWS.SNS();
+var sns = new AWS.SNS();
 
 var params = {
 	Message: 'test',
