@@ -5,7 +5,7 @@ AWS.config.region = 'us-east-1';
 var sns = new AWS.SNS();
 
 var params = {
-	Message: 'test',
+	Message: "It is Wednesday, my dudes",
 	PhoneNumber: '+12064985138'
 };
 

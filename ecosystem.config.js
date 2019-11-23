@@ -7,6 +7,14 @@ module.exports = {
 		{
 			name: 'mqtt',
 			script: './mqtt.js'
+		},
+		{
+			name: 'Wednesday',
+			script: './testSend.js',
+			instances: 1,
+    		cron_restart: "2 * * * *",
+    		watch: false,
+    		autorestart: false
 		}
 	],
 	deploy: {
