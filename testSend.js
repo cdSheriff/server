@@ -5,8 +5,8 @@ var d = new Date();
 
 console.log(d.getHours());
 console.log(d.getMinutes());
-if (new Date().getHours() !== 4 ) {
 
+if (d.getHours() !== 4 || d.getMinutes() != 12) {
 	console.log(`Current hours is ${new Date().getHours()}, not running.`)
 	process.exit(0);
 }
