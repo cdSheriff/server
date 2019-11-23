@@ -1,13 +1,18 @@
 var AWS = require("aws-sdk");
 AWS.config.region = 'us-east-1';
 // console.log("Region: ", AWS.config.region);
+var d = new Date();
+
+console.log(d.getHours());
 
 if (new Date().getHours() !== 4 ) {
-  console.log(`Current hours is ${new Date().getHours()}, not running.`)
-  process.exit(0);
+
+	console.log(`Current hours is ${new Date().getHours()}, not running.`)
+	process.exit(0);
 }
 
 var sns = new AWS.SNS();
+
 
 var params = {
 	Message: "It is Wednesday, my dudes",
