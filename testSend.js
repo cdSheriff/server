@@ -4,7 +4,7 @@ AWS.config.region = 'us-east-1';
 var d = new Date();
 
 console.log(d.getHours());
-
+console.log(d.getMinutes());
 if (new Date().getHours() !== 4 ) {
 
 	console.log(`Current hours is ${new Date().getHours()}, not running.`)
