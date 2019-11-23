@@ -2,6 +2,11 @@ var AWS = require("aws-sdk");
 AWS.config.region = 'us-east-1';
 // console.log("Region: ", AWS.config.region);
 
+if (new Date().getMinutes() !== 20 ) {
+  console.log(`Current minutes is ${new Date().getMinutes()}, not running.`)
+  process.exit(0);
+}
+
 var sns = new AWS.SNS();
 
 var params = {
