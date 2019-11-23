@@ -2,9 +2,8 @@ var AWS = require("aws-sdk");
 AWS.config.region = 'us-east-1';
 // console.log("Region: ", AWS.config.region);
 
-console.log(new Date.getMinutes())
-if (new Date().getMinute() !== 53 ) {
-  console.log(`Current minutes is ${new Date().getMinutes()}, not running.`)
+if (new Date().getHours() !== 3 ) {
+  console.log(`Current hours is ${new Date().getHours()}, not running.`)
   process.exit(0);
 }
 
