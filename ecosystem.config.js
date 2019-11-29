@@ -14,7 +14,7 @@ module.exports = {
 			instances: 1,
     		cron_restart: "*/5 * * * *",
     		watch: false,
-    		restart_delay: 90000
+    		restart_delay: 60000
     		// "cron_restart": "41 * * * *", // restart every minute (used for testing)
     		// autorestart: false
 		}
