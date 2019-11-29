@@ -1,5 +1,4 @@
-var AWS = require("aws-sdk");
-AWS.config.region = 'us-east-1';
+
 // console.log("Region: ", AWS.config.region);
 
 var d = new Date();
@@ -7,12 +6,16 @@ var d = new Date();
 console.log(d.getHours());
 console.log(d.getMinutes());
 
-if (d.getHours() !== 4 || d.getMinutes() != 12) {
-	console.log(`Current hours is ${new Date().getHours()}, not running.`)
+if (d.getHours() !== 23 || d.getMinutes()%5 == 0) {
+	console.log(`Current minutes is ${new Date().getMinutes()}, not running.`)
 	process.exit(0);
 }
 
-process.exit(0);
+// process.exit(0);
+
+
+var AWS = require("aws-sdk");
+AWS.config.region = 'us-east-1';
 
 var sns = new AWS.SNS();
 
