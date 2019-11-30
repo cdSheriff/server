@@ -3,8 +3,8 @@
 
 var d = new Date();
 
-console.log(d.getHours());
 console.log(d.getMinutes());
+console.log(d.getHours());
 console.log(d.getDay());
 
 if (d.getMinutes() !== 0 || d.getHours() != 15 || g.getDay() != 6) {
