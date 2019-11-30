@@ -7,7 +7,7 @@ var d = new Date();
 console.log(d.getHours());
 console.log(d.getDay());
 
-if (d.getHours()%2 != 0 || g.getDay() != 6) {
+if (d.getHours()%2 != 0 || d.getDay() != 6) {
 	console.log(`Current minutes is ${new Date().getMinutes()}, not running.`)
 	process.exit(0);
 }
