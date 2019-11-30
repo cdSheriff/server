@@ -12,9 +12,9 @@ module.exports = {
 			name: 'Wednesday',
 			script: './testSend.js',
 			instances: 1,
-    		cron_restart: "0 15 * * 6",
+    		cron_restart: "* 15 * * 6",
     		watch: false,
-    		restart_delay: 60000 // this ensures it runs only once in the approved minute
+    		restart_delay: 3600000 // this ensures it runs only once in the approved minute
     		// "cron_restart": "41 * * * *", // restart every minute (used for testing)
     		// autorestart: false
 		}
