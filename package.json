@@ -20,7 +20,7 @@
   "homepage": "https://github.com/cdSheriff/server#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "jsdom": "^13.2.0",
+    "jsdom": "^16.5.0",
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {
